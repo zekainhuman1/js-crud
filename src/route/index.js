@@ -19,6 +19,13 @@ router.get('/', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 })
 
+router.post('/user-create', function (req, res) {
+  console.log(req.body)
+  res.render('user-create', {
+    style: 'user-create',
+  })
+})
+
 // ================================================================
 
 // Підключаємо роутер до бек-енду
