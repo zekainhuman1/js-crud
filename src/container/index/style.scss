@@ -40,15 +40,13 @@
         border-radius: 20px;
     }
 }
-.form__title {
+main {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(10);
 }
-.form__content {
-}
-.form__field {
-}
-.form__label {
-}
-.form__input {
-}
-.form__button {
+.user-list {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 15px;
 }
