@@ -4,6 +4,62 @@ const express = require('express')
 const router = express.Router()
 
 // ================================================================
+
+class Product {
+  static #list = []
+  constructor(name, price, description) {
+    this.id = Math.floor(Math.random() * 100000)
+    this.createDate = new Date().toISOString()
+    this.name = name
+    this.price = price
+    this.description = description
+  }
+  static getList = (user) => {
+    return this.#list
+  }
+
+  static add = (product) => {
+    this.#list.push(product)
+  }
+
+  static getById = (id) => {
+    return this.#list.find(product => product.id === id)
+  }
+
+  static updateById = (id, data) => {
+    const product = this.getById(id)
+    if (product) {
+      this.update(product, data)
+      return true
+    } else {
+      return false
+    }
+  }
+
+  static update = (product, { name, price, description }) => {
+    if (name) {
+      product.name = name
+    } else if (price) {
+      product.price = price
+    } else if (description) {
+      product.description = description
+    }
+  }
+
+  static deleteById = (id) => {
+    const index = this.#list.findIndex(product => product.id === id)
+    if (index !== -1) {
+      this.#list.splice(index, 1)
+      return true
+    } else {
+      return false
+    }
+  }
+
+}
+
+// ================================================================
+
 class User {
   static #list = []
   constructor(email, login, password) {
@@ -115,6 +171,43 @@ router.post('/user-update', function (req, res) {
   })
 })
 // ================================================================
+router.get('/product-create', function (req, res) {
+  const { id } = req.query
+  User.deleteById(Number(id))
+
+  res.render('product-create', {
+    style: 'product-create',
+  })
+})
+
+router.get('/product-list', function (req, res) {
+  const list = Product.getList()
+
+  res.render('product-list', {
+    style: 'product-list',
+
+    data: {
+      users: {
+        list,
+        isEmpty: list.length === 0
+      }
+    }
+  })
+})
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+  console.log(req.body)
+
+  const product = new Product(name, price, description)
+  Product.add(product)
+  console.log(Product.getList())
+  res.render('alert', {
+    style: 'alert',
+    alert: "Успішне виконання дії",
+    alert_msg: "Товар був успішно створений"
+  })
+})
 
 // Підключаємо роутер до бек-енду
 module.exports = router
