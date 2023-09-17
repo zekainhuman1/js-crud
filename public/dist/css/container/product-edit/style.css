@@ -1,0 +1,90 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.title {
+  display: inline-block;
+  width: 800px;
+  padding-bottom: 40px;
+  font-size: 27px;
+  color: #3e77b6;
+  font-weight: 900;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+  width: 800px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.form__title {
+  font-size: 17px;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+.form__content {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+}
+.form__field {
+  display: flex;
+  grid-column: span 2;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__field:last-of-type {
+  grid-column: 1/7;
+}
+.form__field:last-of-type .form__input:last-of-type {
+  height: 80px;
+}
+.form__label {
+  font-size: 14px;
+}
+.form__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.form__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  grid-column: span 3;
+  border-radius: 20px;
+  background-color: #3e77b6;
+  color: white;
+}
+.form__button:last-child {
+  background-color: #ff0000;
+  text-decoration: none;
+}
+.form__label--comment {
+  font-size: 10;
+  color: gray;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.user-list {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-right: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */

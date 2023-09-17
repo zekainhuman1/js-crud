@@ -8,32 +8,12 @@
       <h1 class="list__title">Список товарів</h1>
       <div class="list__block">
 
-        {{#with data.users}}
+        {{#with data.products}}
         {{#if isEmpty}}
-        <mark>Список користувачів пустий</mark>
+        <mark>Список товарів пустий</mark>
         {{else}}
-        {{#each list}}
 
-        <div class="product-card">
-          <div class="product-card__title">
-            {{name}}
-          </div>
-          <div class="product-card__description">
-            {{description}}
-          </div>
-          <div class="product-card__id">
-            {{id}}
-          </div>
-          <div class="product-card__end">
-            <div class="product-card__end price">
-              {{price}}
-            </div>
-            <a href="/user-delete?id={{id}}" class="product-card__end button-edit">
-              Редагувати продукт
-            </a>
-          </div>
-        </div>
-        {{/each}}
+        {{> product-card}}
 
         {{/if}}
         {{/with}}

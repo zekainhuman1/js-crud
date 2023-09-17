@@ -1,5 +1,82 @@
 @use '../../lib/service.scss' as s;
 
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: s.space(15);
+}
+
+.list {
+    padding: s.space(4);
+    gap: s.space(8);
+    width: 800px;
+
+    &__title {
+        display: inline-block;
+        width: 800px;
+        font-size: 27px;
+        color: s.color("mine");
+        font-weight: 900;
+        padding-bottom: s.space(15);
+
+    }
+
+    &__block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: s.space(4);
+    }
+}
+
+.product-card {
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    gap: s.space(2);
+    padding: s.space(2);
+    border: 1px solid s.color("light");
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+
+    &__title {
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    &__description {
+        word-wrap: break-word;
+        display: block;
+        max-width: 220px;
+    }
+
+    &__id {
+        max-width: 220px;
+        color: grey;
+    }
+
+    &__end {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__end {
+        .price {
+            font-size: 19px;
+            font-weight: 900;
+        }
+    }
+
+    &__end {
+        .button-edit {
+            color: s.color("mine");
+            text-decoration: none;
+        }
+    }
+
+}
+
+
 .form {
     display: flex;
     flex-direction: column;
