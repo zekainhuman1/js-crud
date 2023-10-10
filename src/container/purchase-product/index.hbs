@@ -1,0 +1,35 @@
+<main class="main">
+    {{> heading/index title="Інформація про товар" }}
+    {{#with data.product}}
+    <form method="post" action="/purchase-create?id={{id}}">
+        <div class="product-info">
+            <img src="{{img}}" alt="{{title}}" class="product-info__image">
+            <h2 class="product-info__title">{{title}}</h2>
+            <p class="product-info__subtitle">{{description}}</p>
+
+            {{>divider/index}}
+            {{#each category}}
+            <span class="product-info__category product-info__category--{{id}}">{{text}}</span>
+            {{/each}}
+
+            {{>divider/index}}
+
+
+
+            {{> field/index label="Кількість" type="number" name="amount" value="1"}}
+
+
+            {{> button/index text='Купити зараз' price=price}}
+
+        </div>
+    </form>
+    {{/with}}
+
+    {{> heading/index title="Інші товари" info="Комп'ютери та ноутбуки"}}
+
+    <div class="product-list">
+        {{#each data.list}}
+        {{> purchase-product/index data=this}}
+        {{/each}}
+    </div>
+</main>

@@ -1,0 +1,50 @@
+@use '../../lib/service.scss' as s;
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/divider/style.scss' as divider;
+@use '../../component/button/style.scss' as button;
+@use '../../component/info/style.scss' as info;
+
+
+
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(10);
+    padding: s.space(10);
+    a {
+    text-decoration: none
+
+    }
+};
+
+
+.my-purchase {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: s.space(4);
+}
+.my-purachase__id {
+    color: #808080;
+}
+.my-purachase__title {
+    color: #808080;
+    p {
+        color: black;
+    }
+}
+.my-purachase__totalPrice {
+    color: #808080;
+    p {
+        color: black;
+    }
+}
+.my-purachase__bonusAdd {
+    color: #808080;
+    p {
+        color: black;
+    }
+}
